@@ -1,0 +1,90 @@
+import math
+
+
+def add(x, y):
+    return x + y
+
+
+def subtract(x, y):
+    return x - y
+
+
+def multiply(x, y):
+    return x * y
+
+
+def divide(x, y):
+    return x / y
+
+
+def power(x, y):
+    return x ** y
+
+
+def sqrt(x):
+    return math.sqrt(x)
+
+
+def bmi(weight, height):
+    return weight / (height ** 2)
+
+
+print("Calculator Options:")
+print("1. Addition")
+print("2. Subtraction")
+print("3. Multiplication")
+print("4. Division")
+print("5. Power")
+print("6. Square Root")
+print("7. BMI Calculation")
+
+choice = input("Enter your choice (1-7): ")
+
+if choice in ['1', '2', '3', '4', '5']:
+    num1 = float(input("Enter the first number: "))
+    num2 = float(input("Enter the second number: "))
+
+    if choice == '1':
+        result = add(num1, num2)
+        operation = '+'
+    elif choice == '2':
+        result = subtract(num1, num2)
+        operation = '-'
+    elif choice == '3':
+        result = multiply(num1, num2)
+        operation = '*'
+    elif choice == '4':
+        if num2 != 0:
+            result = divide(num1, num2)
+            operation = '/'
+        else:
+            print("Error: Cannot divide by zero.")
+            exit()
+    elif choice == '5':
+        result = power(num1, num2)
+        operation = '^'
+
+    print("Result: {} {} {} = {}".format(num1, operation, num2, result))
+
+elif choice == '6':
+    num = float(input("Enter the number: "))
+    if num >= 0:
+        result = sqrt(num)
+        print("Result: Square root of {} = {}".format(num, result))
+    else:
+        print("Error: Cannot calculate square root of a negative number.")
+        exit()
+
+elif choice == '7':
+    weight = float(input("Enter weight in kg: "))
+    height = float(input("Enter height in meters: "))
+    if weight > 0 and height > 0:
+        result = bmi(weight, height)
+        print("BMI:", result)
+    else:
+        print("Error: Invalid weight or height value.")
+        exit()
+
+else:
+    print("Error: Invalid choice. Please select a number from 1 to 7.")
+    exit()
